@@ -14,11 +14,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# backend/api/urls.py
 from django.urls import path
-from .views import test_api_view
-
+from .views import RegistrationView, CustomLoginView, CustomLogoutView
 
 urlpatterns = [
-    # API entry points should be defined here
-    path('test.json', test_api_view, name='api test')
+    path('signup/', RegistrationView.as_view(), name='signup'),
+    path('login/', CustomLoginView.as_view(), name='login'),
+    path('logout/', CustomLogoutView.as_view(), name='logout'),
+    # Add other URL patterns as needed
 ]
+
