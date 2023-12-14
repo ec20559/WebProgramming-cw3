@@ -1,0 +1,30 @@
+<template>
+    <form @submit.prevent="updateProfile">
+      <!-- form fields here -->
+      <button type="submit">Update Profile</button>
+    </form>
+  </template>
+
+{% extends 'base.html' %}
+
+{% block title %}User Profile{% endblock %}
+
+{% block custom_css %}
+<style>
+/* Add custom CSS for profile page here */
+.profile-container {
+    /* Styling for profile container */
+    font-size: 16px;
+}
+</style>
+{% endblock %}
+
+{% block main_container_class %}container-fluid{% endblock %}
+{% block content_container_class %}col-md-12{% endblock %}
+
+{% block content %}
+<div id="app"></div>
+<!-- Profile page content here -->
+{% endblock %}
+
+  
