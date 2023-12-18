@@ -4,6 +4,9 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
+from django.views.generic import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 class RegistrationView(CreateView):
     form_class = UserCreationForm
@@ -15,6 +18,17 @@ class CustomLoginView(LoginView):
 
 class CustomLogoutView(LogoutView):
     pass
+
+class ProfileView(LoginRequiredMixin, TemplateView):
+    template_name = 'registration/profile.html'  # Path to your profile template
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user'] = self.request.user  # Add user to context
+        return context
+
+
+
 
 def test_api_view(request):
     return JsonResponse({

@@ -5,6 +5,8 @@
 
 {% block content %}
     <h2>Log In</h2>
+    <!-- <a href="{% url 'profile' %}">My Profile</a> -->
+
     <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
         {{ form.as_p }}

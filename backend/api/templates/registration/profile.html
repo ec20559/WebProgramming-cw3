@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}User Profile{% endblock %}
+
+{% block custom_css %}
+<style>
+/* Add custom CSS for profile page here */
+.profile-container {
+    /* Styling for profile container */
+    font-size: 16px;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #000000;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+</style>
+{% endblock %}
+
+{% block main_container_class %}container-fluid{% endblock %}
+{% block content_container_class %}col-md-12{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <h2>User Profile</h2>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Date of birth:</strong> {{ user.date_of_birth }}</p>
+    <!-- Add other user details you wish to display -->
+    
+    <!-- Vue app root -->
+    <div id="app"></div>
+</div>
+{% endblock %}

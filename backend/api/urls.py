@@ -16,12 +16,13 @@ Including another URLconf
 """
 # backend/api/urls.py
 from django.urls import path
-from .views import RegistrationView, CustomLoginView, CustomLogoutView
+from .views import RegistrationView, CustomLoginView, CustomLogoutView, ProfileView
 
 urlpatterns = [
     path('signup/', RegistrationView.as_view(), name='signup'),
     path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', CustomLogoutView.as_view(), name='logout'),
+    path('profile/', ProfileView.as_view(), name='profile'),
     # Add other URL patterns as needed
 ]
 
